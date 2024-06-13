@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renta de Bicicletas Comunitarias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#bicicletas">Bicicletas</a></li>
+                    <li><a href="#precios">Precios</a></li>
+                    <li><a href="#reserva">Reserva</a></li>
+                    <li><a href="#acerca">Acerca de</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="inicio" class="welcome-section">
+            <div class="container">
+                <h1>¡Bienvenido a nuestra Renta de Bicicletas Comunitarias!</h1>
+                <a href="#reserva" class="btn">Reservar Ahora</a>
+            </div>
+        </section>
+
+        <section id="bicicletas" class="bike-section">
+            <div class="container">
+                <h2>Bicicletas Disponibles</h2>
+                <div class="bike-gallery">
+                    <!-- Galería de bicicletas -->
+                    <div class="bike">
+                        <img src="images/Bici_Urban.jpg" alt="Bicicleta Urbana">
+                        <h3>Bicicleta Urbana</h3>
+                        <p>Ideal para desplazamientos en la ciudad.</p>
+                    </div>
+                    <!-- Repite este bloque para las demás bicicletas -->
+                </div>
+            </div>
+        </section>
+
+        <section id="precios" class="price-section">
+            <div class="container">
+                <h2>Precios y Tarifas</h2>
+                <!-- Tabla de precios -->
+                <table>
+                    <tr>
+                        <th>Tipo de Servicio</th>
+                        <th>Precio</th>
+                    </tr>
+                    <tr>
+                        <td>Viaje único (30 minutos)</td>
+                        <td>$20 MXN</td>
+                    </tr>
+                    <tr>
+                        <td>Pase diario (12 horas)</td>
+                        <td>$149 MXN</td>
+                    </tr>
+                    <tr>
+                        <td>Membresía mensual (viajes ilimitados de 30 minutos al día)</td>
+                        <td>$289 MXN</td>
+                    </tr>
+                    <tr>
+                        <td>Membresía anual (viajes ilimitados de 60 minutos al día)</td>
+                        <td>$1,999 MXN</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="reserva" class="booking-section">
+            <div class="container">
+                <h2>Reserva Ahora</h2>
+                <div class="booking-form">
+                    <!-- Formulario de reserva -->
+                    <form id="bookingForm" action="#" method="post">
+                        <label for="type">Tipo de Reserva:</label>
+                        <select id="type" name="type" required>
+                            <option value="viaje">Viaje único</option>
+                            <option value="pase">Pase diario</option>
+                        </select><br><br>
+                        <label for="membership">¿Tiene membresía?</label>
+                        <select id="membership" name="membership" required>
+                            <option value="none">No</option>
+                            <option value="mensual">Membresía mensual</option>
+                            <option value="anual">Membresía anual</option>
+                        </select><br><br>
+                        <label for="duration">Duración (minutos):</label>
+                        <input type="number" id="duration" name="duration" min="1" required><br><br>
+                        <label for="date">Fecha:</label>
+                        <input type="date" id="date" name="date" required><br><br>
+                        <label for="time">Hora:</label>
+                        <input type="time" id="time" name="time" required><br><br>
+                        <label for="total">Total:</label>
+                        <input type="text" id="total" name="total" readonly><br><br>
+                        <button type="submit">Reservar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="acerca" class="about-section">
+            <div class="container">
+                <h2>Acerca de Nosotros</h2>
+                <p>Somos una empresa comprometida con el medio ambiente y la movilidad sostenible. Nuestra misión es proporcionar bicicletas de calidad a la comunidad, fomentando un estilo de vida activo y respetuoso con el entorno.</p>
+                <p>Con una amplia variedad de bicicletas para todas las edades y necesidades, estamos aquí para ayudarte a explorar tu ciudad de una manera divertida y ecológica.</p>
+                <h3>Nuestros Valores</h3>
+                <ul>
+                    <li>Sostenibilidad</li>
+                    <li>Calidad</li>
+                    <li>Accesibilidad</li>
+                    <li>Comunidad</li>
+                </ul>
+                <h3>Testimonios</h3>
+                <div class="testimonial">
+                    <blockquote>
+                        "Alquilé una bicicleta aquí para explorar la ciudad durante mi viaje y fue una experiencia fantástica. Las bicicletas estaban en excelente estado y el personal fue muy amable y servicial."
+                    </blockquote>
+                    <cite>- María Rodríguez</cite>
+                </div>
+                <div class="testimonial">
+                    <blockquote>
+                        "¡Increíble servicio! Reservé una bicicleta para un evento comunitario y todo salió perfecto. Definitivamente volveré a alquilar aquí en el futuro."
+                    </blockquote>
+                    <cite>- Juan Pérez</cite>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <h2>Contacto</h2>
+                <div class="contact-form">
+                    <!-- Formulario de contacto -->
+                    <form id="contactForm" action="#" method="post">
+                        <label for="name">Nombre:</label>
+                        <input type="text" id="name" name="name" required><br><br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br><br>
+                        <label for="message">Mensaje:</label><br>
+                        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Renta de Bicicletas Comunitarias</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
