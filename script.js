@@ -11,14 +11,54 @@ document.addEventListener('DOMContentLoaded', function() {
         anual: 0   // Membresía anual (viajes ilimitados de 60 minutos al día)
     };
 
-    typeInput.addEventListener('change', updateTotal);
-    membershipInput.addEventListener('change', updateTotal);
-    durationInput.addEventListener('input', updateTotal);
+    typeInput.addEventListener('change', handleTypeChange);
+    membershipInput.addEventListener('change', handleMembershipChange);
+    durationInput.addEventListener('input', handleDurationChange);
+
+    function handleTypeChange() {
+        const type = typeInput.value;
+        if (type === 'pase') {
+            durationInput.value = 720;
+            durationInput.disabled = true;
+        } else {
+            durationInput.disabled = false;
+        }
+        updateTotal();
+    }
+
+    function handleMembershipChange() {
+        const membership = membershipInput.value;
+        if (membership === 'mensual') {
+            durationInput.value = 30;
+            durationInput.disabled = true;
+        } else if (membership === 'anual') {
+            durationInput.value = 60;
+            durationInput.disabled = true;
+        } else {
+            durationInput.disabled = false;
+        }
+        updateTotal();
+    }
+
+    function handleDurationChange() {
+        let duration = parseInt(durationInput.value);
+        if (duration % 30 !== 0) {
+            duration = Math.ceil(duration / 30) * 30;
+            durationInput.value = duration;
+        }
+        updateTotal();
+    }
 
     function updateTotal() {
         const type = typeInput.value;
         const membership = membershipInput.value;
-        const duration = parseFloat(durationInput.value);
+        let duration = parseFloat(durationInput.value);
+
+        // Asegurarse de que la duración mínima sea de 30 minutos
+        if (duration < 30) {
+            duration = 30;
+            durationInput.value = 30;
+        }
 
         let total = 0;
 
@@ -44,9 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
 
-        if (duration === '' || date === '' || time === '') {
+        if (duration < 30 || date === '' || time === '') {
             event.preventDefault();
-            alert('Por favor complete todos los campos del formulario.');
+            alert('Por favor complete todos los campos del formulario y asegúrese de que la duración sea de al menos 30 minutos.');
         }
     });
 
